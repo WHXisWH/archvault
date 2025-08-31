@@ -4,6 +4,10 @@
 
 ArchVault transforms architectural drawings, BIM models, contracts, and site documentation into **verifiable version assets** on programmable storage services, providing **second-level accessible Warm layer**, **PDP proof + FilCDN rapid retrieval**, **FIL/ERC-20 streaming settlement**, and **auditable frozen archives**.
 
+For more details on the project design and technical architecture, please see:
+- [Product Design Document](./PRODUCT_DESIGN.md)
+- [Technical Architecture](./STRUCTURE.md)
+
 ## 🏗️ Problem We Solve
 
 The architecture industry faces critical challenges in cross-organizational collaboration:
@@ -186,12 +190,4 @@ MIT
 2. SLA configuration → FilCDN guaranteed retrieval with penalties
 3. Export evidence package → Version CID, PDP proofs, Deal info, signatures
 
-## 📞 Contact
-
-- GitHub: [your-github]
-- Email: team@archvault.io
-- Discord: [discord-link]
-
----
-
-**Built for Filecoin WaveHack 2024**
+**Built for Filecoin WaveHack**
