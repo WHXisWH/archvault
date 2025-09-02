@@ -1,0 +1,1 @@
+export function Arrow({ animated }: { animated: boolean }) { return <div className={`text-2xl ${animated ? 'text-blue-500' : 'text-gray-300'}`}>{'>'}</div>; }

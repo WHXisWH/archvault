@@ -1,0 +1,1 @@
+export function ServiceNode({ name, status, data }: { name: string, status: string, data: any }) { return <div className="p-4 border rounded-md bg-gray-50 text-center"><p className="font-bold">{name}</p><p className="text-sm">{status}</p></div>; }

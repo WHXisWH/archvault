@@ -21,7 +21,7 @@ export default function Sidebar() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col h-0 flex-1 bg-surface border-r border-border">
+    <div className="flex flex-col h-full flex-1 bg-surface border-r border-border">
       <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
         <nav className="mt-5 flex-1 px-2 space-y-1">
           {navigation.map((item) => (

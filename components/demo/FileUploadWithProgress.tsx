@@ -1,0 +1,1 @@
+export function FileUploadWithProgress() { return <div className="p-4 border rounded-md bg-gray-50">FileUploadWithProgress Placeholder</div>; }

@@ -1,0 +1,1 @@
+export function CDNDistributionMap() { return <div className="p-4 border rounded-md bg-gray-50">CDNDistributionMap Placeholder</div>; }

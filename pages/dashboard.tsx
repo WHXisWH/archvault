@@ -1,4 +1,7 @@
+import { ServiceIntegrationFlow } from '@/components/visualization/ServiceIntegrationFlow';
+import { ServiceIntegrationPanel } from '@/components/dashboard/ServiceIntegrationPanel';
 import Layout from '@/components/layout/Layout';
+import { IntegratedWorkflowDemo } from '@/components/demo/IntegratedWorkflowDemo';
 import { ArrowUpRightIcon, FolderIcon, CircleStackIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 const stats = [
@@ -45,6 +48,14 @@ export default function Dashboard() {
         </div>
 
         <div className="mt-12">
+          <ServiceIntegrationPanel />
+        </div>
+
+        <div className="mt-12">
+          <ServiceIntegrationFlow />
+        </div>
+
+        <div className="mt-12">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h2>
           <div className="bg-white shadow overflow-hidden rounded-md">
             <ul role="list" className="divide-y divide-gray-200">
@@ -60,6 +71,11 @@ export default function Dashboard() {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Filecoin Tech Stack Integration Demo</h2>
+          <IntegratedWorkflowDemo />
         </div>
       </div>
     </Layout>

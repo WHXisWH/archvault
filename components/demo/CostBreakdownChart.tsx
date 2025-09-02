@@ -1,0 +1,1 @@
+export function CostBreakdownChart() { return <div className="p-4 border rounded-md bg-gray-50">CostBreakdownChart Placeholder</div>; }

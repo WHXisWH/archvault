@@ -1,0 +1,1 @@
+export function PaymentFlowVisualization() { return <div className="p-4 border rounded-md bg-gray-50">PaymentFlowVisualization Placeholder</div>; }
