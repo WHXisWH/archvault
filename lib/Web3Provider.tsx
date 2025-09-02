@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { Web3Auth } from "@web3auth/modal";
 import { EthereumPrivateKeyProvider } from "@web3auth/ethereum-provider";
-import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK } from "@web3auth/base";
+import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK, WALLET_ADAPTERS } from "@web3auth/base";
 import { MetamaskAdapter } from "@web3auth/metamask-adapter";
 import { WalletConnectV2Adapter } from "@web3auth/wallet-connect-v2-adapter";
 import Web3 from "web3";
@@ -84,7 +84,7 @@ export function Web3Provider({ children }: Web3ProviderProps) {
         const web3authInstance = new Web3Auth({
           clientId,
           web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_DEVNET,
-          privateKeyProvider,
+          privateKeyProvider: privateKeyProvider as any,
           uiConfig: {
             appName: "ArchVault",
             logoLight: "/logo.webp",
@@ -97,38 +97,7 @@ export function Web3Provider({ children }: Web3ProviderProps) {
           },
         });
 
-        const metamaskAdapter = new MetamaskAdapter({
-          clientId,
-          sessionTime: 3600,
-          web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_DEVNET,
-          chainConfig,
-        });
-        web3authInstance.configureAdapter(metamaskAdapter);
-
-        const walletConnectProjectId = process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID;
-        
-        if (walletConnectProjectId) {
-          const walletConnectV2Adapter = new WalletConnectV2Adapter({
-            clientId,
-            sessionTime: 3600,
-            web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_DEVNET,
-            chainConfig,
-            adapterSettings: {
-              walletConnectInitOptions: {
-                projectId: walletConnectProjectId,
-                metadata: {
-                  name: "ArchVault",
-                  description: "Verifiable Collaboration & Archive Cloud",
-                  url: "https://archvault.vercel.app",
-                  icons: ["/logo.webp"],
-                },
-              },
-            },
-          });
-          web3authInstance.configureAdapter(walletConnectV2Adapter);
-        }
-
-        await web3authInstance.initModal();
+        await web3authInstance.init();
         setWeb3auth(web3authInstance);
 
         const savedWalletType = localStorage.getItem('wallet_connection_type');
